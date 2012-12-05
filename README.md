@@ -1,6 +1,6 @@
 # ActionView::Helpers::FormHelper::ErrorMessages
 
-TODO: Write a gem description
+Extend ActionView::Helepr::FormHelper for rendering error message with using rails form_for.
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+<%= from_for(@user) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.error_message :name %>
+<% end %>
+```
 
 ## Contributing
 
