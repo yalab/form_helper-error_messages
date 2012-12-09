@@ -9,3 +9,15 @@ end
 require 'action_view/helpers/form_helper'
 require 'action_view-helpers-form_helper-error_messages'
 require 'models/user'
+
+Routes = ActionDispatch::Routing::RouteSet.new
+Routes.draw do
+  resources :users
+end
+
+class ActionView::TestCase::TestController
+  include Routes.url_helpers
+  def _routes
+    Routes
+  end
+end
