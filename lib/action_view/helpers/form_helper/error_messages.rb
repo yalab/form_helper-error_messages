@@ -3,9 +3,10 @@ module ActionView
     module FormHelper
       module ErrorMessages
         def error_messages(attr, opts={})
-          tag = opts[:tag] || :div
+          tag        = opts[:tag]   || :div
+          class_name = opts[:class] || 'invalid'
           @object.errors[attr].map{|error|
-            @template.content_tag(tag, ERB::Util.html_escape(error), :class => 'invalid')
+            @template.content_tag(tag, ERB::Util.html_escape(error), class: class_name)
           }.join("\n").html_safe
         end
       end
