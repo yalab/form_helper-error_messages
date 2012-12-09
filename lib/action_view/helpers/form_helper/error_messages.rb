@@ -6,7 +6,11 @@ module ActionView
           tag        = opts[:tag]   || :div
           class_name = opts[:class] || 'invalid'
           @object.errors[attr].map{|error|
-            @template.content_tag(tag, ERB::Util.html_escape(error), class: class_name)
+            if block_given?
+              yield error
+            else
+              @template.content_tag(tag, ERB::Util.html_escape(error), class: class_name)
+            end
           }.join("\n").html_safe
         end
       end

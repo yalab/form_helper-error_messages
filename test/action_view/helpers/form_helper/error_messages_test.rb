@@ -18,4 +18,11 @@ class ActionView::Helpers::FormHelper::ErrorMessageTest < ActionView::TestCase
       assert_dom_equal('<span class="error">can&#x27;t be blank</span>', f.error_messages(:name, tag: 'span', class: 'error'))
     end
   end
+
+  test "#error_messages with block" do
+    form_for(@user) do |f|
+      assert_dom_equal("It can't be blank!!",
+                       f.error_messages(:name){|message| 'It ' + message + '!!' })
+    end
+  end
 end
