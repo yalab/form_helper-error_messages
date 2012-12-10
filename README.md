@@ -1,4 +1,4 @@
-# ActionView::Helpers::FormHelper::ErrorMessages
+# FormHelper::ErrorMessages
 
 Extend ActionView::Helepr::FormHelper for rendering error message on any position.
 
@@ -6,7 +6,7 @@ Extend ActionView::Helepr::FormHelper for rendering error message on any positio
 
 Add this line to your application's Gemfile:
 
-    gem 'action_view-helpers-form_helper-error_messages'
+    gem 'form_helper-error_messages'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install action_view-helpers-form_helper-error_messages
+    $ gem install form_helper-error_messages
 
 ## Usage
 
@@ -26,7 +26,7 @@ Or install it yourself as:
 <% end %>
 
 # <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-# <div class="invalid">can&#x27;t be blank</div>
+# <div class="invalid">Name can&#x27;t be blank</div>
 # </form>
 ```
 You can choose any tags or any class name like this.
@@ -38,7 +38,7 @@ You can choose any tags or any class name like this.
 <% end %>
 
 # <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
-# <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><span class="error">can&#x27;t be blank</span></form>
+# <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><span class="error">Name can&#x27;t be blank</span></form>
 ```
 
 ## Contributing
