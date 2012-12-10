@@ -9,19 +9,19 @@ class FormHelper::ErrorMessageTest < ActionView::TestCase
 
   test '#error_messages default' do
     form_for(@user) do |f|
-      assert_dom_equal('<div class="invalid">can&#x27;t be blank</div>', f.error_messages(:name))
+      assert_dom_equal('<div class="invalid">Name can&#x27;t be blank</div>', f.error_messages(:name))
     end
   end
 
   test "#error_messages with options" do
     form_for(@user) do |f|
-      assert_dom_equal('<span class="error">can&#x27;t be blank</span>', f.error_messages(:name, tag: 'span', class: 'error'))
+      assert_dom_equal('<span class="error">Name can&#x27;t be blank</span>', f.error_messages(:name, tag: 'span', class: 'error'))
     end
   end
 
   test "#error_messages with block" do
     form_for(@user) do |f|
-      assert_dom_equal("It can't be blank!!",
+      assert_dom_equal("It Name can't be blank!!",
                        f.error_messages(:name){|message| 'It ' + message + '!!' })
     end
   end

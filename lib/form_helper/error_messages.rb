@@ -3,11 +3,13 @@ module FormHelper
     def error_messages(attr, opts={})
       tag        = opts[:tag]   || :div
       class_name = opts[:class] || 'invalid'
-      @object.errors[attr].map{|error|
+      errors = @object.errors
+      errors[attr].map{|message|
+        message = errors.full_message(attr, message)
         if block_given?
-          yield error
+          yield message
         else
-          @template.content_tag(tag, ERB::Util.html_escape(error), class: class_name)
+          @template.content_tag(tag, ERB::Util.html_escape(message), class: class_name)
         end
       }.join("\n").html_safe
     end
