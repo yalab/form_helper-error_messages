@@ -1,6 +1,6 @@
 # ActionView::Helpers::FormHelper::ErrorMessages
 
-Extend ActionView::Helepr::FormHelper for rendering error message with using rails form_for.
+Extend ActionView::Helepr::FormHelper for rendering error message on any position.
 
 ## Installation
 
@@ -19,10 +19,26 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+# You can put error message any position.
 <%= from_for(@user) do |f| %>
   <%= f.text_field :name %>
-  <%= f.error_message :name %>
+  <%= f.error_messages :name %>
 <% end %>
+
+# <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+# <div class="invalid">can&#x27;t be blank</div>
+# </form>
+```
+You can choose any tags or any class name like this.
+
+```ruby
+<%= from_for(@user) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.error_messages :name, tag: 'span', class: 'error' %>
+<% end %>
+
+# <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
+# <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><span class="error">can&#x27;t be blank</span></form>
 ```
 
 ## Contributing
